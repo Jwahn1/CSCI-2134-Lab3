@@ -137,7 +137,7 @@ class MatrixTest {
     /**
     Tests the multiplyWithMatrix function from the Matrix class via black box method
      by multiplying matrices with both negative and positive values and verifying whether the function returns null
-     values when given inproper matrix sizes for multiplication.
+     values when given improper matrix sizes for multiplication.
      */
     @Test
     void multiplyWithMatrix() {
@@ -162,7 +162,7 @@ class MatrixTest {
             }
             //multiply b with current
             res = current.multiplyWithMatrix(b,res);
-            double expected = (k*(k+1))*4;//with matrix multiplcation  here would be 4 column values times 4 rows
+            double expected = (k*(k+1))*4;//with matrix multiplication  here would be 4 column values times 4 rows
 
             //verify that each value in the matrix is as expected
             for (int i = 1; i <= res.getHeight(); i++) {
