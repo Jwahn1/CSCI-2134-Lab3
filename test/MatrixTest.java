@@ -43,7 +43,7 @@ class MatrixTest {
 
             res = current.add(b,res);
 
-            double expected = k+k;
+            double expected = k+k; // expected value after addition
             assert res != null : "the addition has failed";
             //see if the values in res are correct as expected
             for(int i = 1 ; i< b.getHeight(); i++){
@@ -62,9 +62,69 @@ class MatrixTest {
         res = current.add(b,res);
         assert res == null : "add() function does not return null when given incorrect inputs";
     }
-
+    /*
+    Tests functionality of the function multiplyWithScalar from the Matrix Class  via black box method by multiplying
+    with both positive and negative integer and also test whether the function properly returns null when given wrong
+    inputs.
+     */
     @Test
     void multiplyWithScalar() {
+
+        Matrix current = new Matrix(4,4);
+        Matrix res = new Matrix (4,4);
+
+        int const1 = 2;
+        int const2 = -2;
+
+        for(int k = -10 ; k<11; k++){
+
+            //add values to current matrix
+            for(int i = 1 ; i<= current.getHeight(); i++){
+                for(int j = 1 ; j<= current.getWidth(); j++){
+                    current.setElem(i,j,k);
+                }
+            }
+
+            //following two blocks test the scalar multiplication with positive integers
+            res = current.multiplyWithScalar(const1,res);
+            double expected = k*const1;
+
+            for(int i = 1 ; i<= current.getHeight(); i++){
+                for(int j = 1 ; j<= current.getWidth(); j++){
+                    assert res.getElem(i,j) == expected : "scalar multiplication failed";
+                }
+            }
+            //following two blocks test the scalar multiplication with negative integers
+            res = current.multiplyWithScalar(const2,res);
+            expected = k*const2;
+
+            for(int i = 1 ; i<= current.getHeight(); i++){
+                for(int j = 1 ; j<= current.getWidth(); j++){
+                    assert res.getElem(i,j) == expected : "scalar multiplication failed";
+                }
+            }
+
+        }
+
+        //make a matrix with incompatible size compare to current Matrix
+        Matrix wrongSize = new Matrix(23,33);
+        for(int i = 1 ; i<= wrongSize.getHeight(); i++){
+            for(int j = 1 ; j<= wrongSize.getWidth(); j++){
+                wrongSize.setElem(i,j,1);
+            }
+        }
+
+        //create current Matrix
+        for(int i = 1 ; i<= current.getHeight(); i++){
+            for(int j = 1 ; j<= current.getWidth(); j++){
+                current.setElem(i,j,1);
+            }
+        }
+
+        //after the multiplication it will fail since the result Matrix (wrong size) is bigger than Current Matrix
+        wrongSize = current.multiplyWithScalar(3,wrongSize);
+        assert wrongSize == null: "multiplyWithScalar() does not return null when given improper matrix sizes";
+
     }
 
     @Test
