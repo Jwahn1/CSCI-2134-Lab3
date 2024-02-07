@@ -23,12 +23,23 @@ Error 1:
   Suggestion: Implement a Unicorn class
   Comments: Java does not have a standard Unicorn class
 
-Error 2:
-  Method:
-  Test Method:
-  Message:
-  Suggestion:
-  Comments:
+
+
 
 
 *********** ADD AS MANY MORE AS NEEDED *******************
+Error 2:
+  Method: add()
+  Test Method:void  add()
+  Message:add() function does not return null value when given null matrices as input
+  Suggestion: remove "return res" when an incorrect input is given with "return null"
+  Comments:
+
+Error 3:
+ Method: MultiplyWithScalar()
+ Test Method : void MultiplyWithScalar()
+ message : Scalar multiplcation failed 
+ Suggestion : the res matrix always has unequivalent values compared the the matrix used to produce it
+ as there is an off by one bug in the code, all that is needed is to fix the off by one that is cause the code
+ to ignore the first row and column of the matrix multiplcation.
+
