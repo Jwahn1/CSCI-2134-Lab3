@@ -21,6 +21,12 @@ class MatrixTest {
     }
 
     @Test
+    /*
+    Tests functionality in the add() function in the Matrix class via black box method by adding matrices
+    with both positive and negative integers values in them and checking whether the result is correct in each array
+    value of the result matrix. We also test whether the function returns null values when given improper inputs.
+    Our test assumes the function can handle null, negative and positive values 
+     */
     void add() {
         Matrix current = new Matrix(3,3);
         Matrix b = new Matrix(3,3);
@@ -53,6 +59,8 @@ class MatrixTest {
             }
         }
 
+        //block tests whether the function returns null values when given improper inputs
+        //in this case the b matrix is null
         b = null;
         for(int i = 1 ; i< current.getHeight(); i++){
             for(int j = 1 ; j< current.getWidth(); j++){
@@ -65,7 +73,7 @@ class MatrixTest {
     /*
     Tests functionality of the function multiplyWithScalar from the Matrix Class  via black box method by multiplying
     with both positive and negative integer and also test whether the function properly returns null when given wrong
-    inputs.
+    inputs. Our test assumes that the function can handle negative and positive inputs and values in the matrices.
      */
     @Test
     void multiplyWithScalar() {
